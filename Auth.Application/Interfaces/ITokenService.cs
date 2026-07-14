@@ -1,6 +1,6 @@
-using AuthWebApi.Entities;
+using Auth.Domain.Entities;
 
-namespace AuthWebApi.Services
+namespace Auth.Application.Interfaces
 {
     public interface ITokenService
     {

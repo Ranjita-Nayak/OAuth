@@ -6,7 +6,22 @@ This guide provides a comprehensive, step-by-step explanation of the architectur
 
 ---
 
-## 📖 Architectural Concepts
+## 🏗️ Enterprise Clean Architecture
+
+This project is structured using **Clean Architecture** (Onion Architecture) to ensure loose coupling, high testability, and separation of concerns. The solution is divided into four strictly layered projects:
+
+1. **`Auth.Domain`**
+   *The core of the system.* Contains domain entities (`User`, `RefreshToken`). It has **zero dependencies** on any other project or framework (like EF Core).
+2. **`Auth.Application`**
+   *The business logic layer.* Contains DTOs, application interfaces (`IAuthService`, `ITokenService`), and soon, CQRS MediatR commands/queries. It depends **only** on `Auth.Domain`.
+3. **`Auth.Infrastructure`**
+   *The external concerns layer.* Contains the database contexts (`AuthDbContext`, `DapperContext`), EF Core migrations, and the concrete implementations of the services (`AuthService`, `TokenService`). It depends on `Auth.Application`.
+4. **`AuthWebApi` (API Presentation Layer)**
+   *The entry point.* Contains the API Controllers and `Program.cs` for configuring Dependency Injection. It handles HTTP requests and delegates work to the application layer.
+
+---
+
+## 📖 Authentication Concepts
 
 ### 1. Why JWT + Refresh Tokens?
 *   **Access Token (JWT)**: JSON Web Tokens are stateless. Once issued, the client sends this token in the `Authorization` header (`Bearer <token>`) for every request. The server verifies the token cryptographically without hitting the database. To minimize risk if intercepted, access tokens have a very short lifespan (e.g., 15 minutes).
@@ -15,8 +30,8 @@ This guide provides a comprehensive, step-by-step explanation of the architectur
 *   **Token Reuse Detection**: If an attacker steals a refresh token and tries to reuse it after the user has already rotated it, the server detects the reuse of a revoked token. For security, the server automatically **revokes all active sessions** for that user, neutralizing the threat.
 
 ### 2. Combining EF Core and Dapper
-*   **Entity Framework Core (EF Core)**: Excellent for mapping entity models, managing database migrations (code-first schema generation), and handling write operations where change-tracking, relational state management, and cascading deletes are essential (e.g., adding a user, attaching tokens, or saving updates).
-*   **Dapper**: A lightweight micro-ORM that compiles high-performance direct SQL read queries. It is used for fast lookup operations where we do not need change-tracking (e.g., checking if a username exists, performing high-speed login lookups, or executing complex join queries such as mapping a token to its user).
+*   **Entity Framework Core (EF Core)**: Used in the Infrastructure layer for mapping entity models, managing database migrations, and handling write operations where change-tracking is essential.
+*   **Dapper**: A lightweight micro-ORM used in the Infrastructure layer for fast, read-only lookup operations (e.g., checking if a username exists, performing high-speed login lookups).
 
 ---
 

@@ -2,7 +2,7 @@ using System.Data;
 using Microsoft.Data.SqlClient;
 using Microsoft.Extensions.Configuration;
 
-namespace AuthWebApi.Data
+namespace Auth.Infrastructure.Data
 {
     public class DapperContext
     {

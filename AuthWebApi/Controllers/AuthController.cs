@@ -2,8 +2,8 @@ using System;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using AuthWebApi.Models.Dto;
-using AuthWebApi.Services;
+using Auth.Application.DTOs;
+using Auth.Application.Interfaces;
 using Microsoft.AspNetCore.Authentication;
 using System.Linq;
 namespace AuthWebApi.Controllers

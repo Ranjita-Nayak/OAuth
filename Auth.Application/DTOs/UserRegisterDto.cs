@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace AuthWebApi.Models.Dto
+namespace Auth.Application.DTOs
 {
     public class UserRegisterDto
     {

@@ -1,14 +1,16 @@
 using System;
+using Auth.Application.Interfaces;
+using Auth.Infrastructure.Models;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Security.Cryptography;
 using System.Text;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
-using AuthWebApi.Entities;
-using AuthWebApi.Models;
+using Auth.Domain.Entities;
+using Auth.Infrastructure.Services;
 
-namespace AuthWebApi.Services
+namespace Auth.Infrastructure.Services
 {
     public class TokenService : ITokenService
     {

@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace AuthWebApi.Entities
+namespace Auth.Domain.Entities
 {
     public class User
     {

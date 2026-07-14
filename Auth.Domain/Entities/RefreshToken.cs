@@ -1,7 +1,7 @@
 using System;
 using System.Text.Json.Serialization;
 
-namespace AuthWebApi.Entities
+namespace Auth.Domain.Entities
 {
     public class RefreshToken
     {

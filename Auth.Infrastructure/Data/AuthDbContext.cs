@@ -1,7 +1,7 @@
 using Microsoft.EntityFrameworkCore;
-using AuthWebApi.Entities;
+using Auth.Domain.Entities;
 
-namespace AuthWebApi.Data
+namespace Auth.Infrastructure.Data
 {
     public class AuthDbContext : DbContext
     {

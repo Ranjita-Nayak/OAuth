@@ -1,7 +1,7 @@
 using System.Threading.Tasks;
-using AuthWebApi.Models.Dto;
+using Auth.Application.DTOs;
 
-namespace AuthWebApi.Services
+namespace Auth.Application.Interfaces
 {
     public interface IAuthService
     {

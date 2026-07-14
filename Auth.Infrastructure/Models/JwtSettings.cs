@@ -1,4 +1,4 @@
-namespace AuthWebApi.Models
+namespace Auth.Infrastructure.Models
 {
     public class JwtSettings
     {

@@ -1,3 +1,4 @@
+using Auth.Infrastructure.Models;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -9,9 +10,9 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
-using AuthWebApi.Data;
-using AuthWebApi.Models;
-using AuthWebApi.Services;
+using Auth.Infrastructure.Data;
+using Auth.Infrastructure.Services;
+using Auth.Application.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
 

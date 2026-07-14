@@ -1,6 +1,6 @@
 using System;
 
-namespace AuthWebApi.Models.Dto
+namespace Auth.Application.DTOs
 {
     public class TokenResponseDto
     {

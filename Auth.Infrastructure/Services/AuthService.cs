@@ -1,4 +1,5 @@
 using System;
+using Auth.Application.Interfaces;
 using System.Data;
 using System.Linq;
 using System.Security.Cryptography;
@@ -6,11 +7,11 @@ using System.Text;
 using System.Threading.Tasks;
 using Dapper;
 using Microsoft.EntityFrameworkCore;
-using AuthWebApi.Data;
-using AuthWebApi.Entities;
-using AuthWebApi.Models.Dto;
+using Auth.Infrastructure.Data;
+using Auth.Domain.Entities;
+using Auth.Application.DTOs;
 
-namespace AuthWebApi.Services
+namespace Auth.Infrastructure.Services
 {
     public class AuthService : IAuthService
     {
